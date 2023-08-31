@@ -13,7 +13,7 @@ public class Main {
     static ArrayList<Integer> readData() {
         ArrayList<Integer> data = new ArrayList<Integer>();
         try {
-            FileInputStream read_file = new FileInputStream("D:/Code/Per/Java/vimTest/vim/src/main/java/com/lennuh/assets/MegaFrog.jpg");
+            FileInputStream read_file = new FileInputStream();
             boolean eof = false;
             while(!eof) {
                 int byteValue = read_file.read();
@@ -31,7 +31,7 @@ public class Main {
 
     static void writeData(ArrayList<Integer> data) {
         try {
-            FileOutputStream write_file = new FileOutputStream("D:/Code/Per/Java/vimTest/vim/src/main/java/com/lennuh/assets/MegaFrog_Copy.jpg");
+            FileOutputStream write_file = new FileOutputStream();
             for (int i = 0; i < data.size(); i++) {
                 write_file.write(data.get(i));
             }
@@ -45,7 +45,7 @@ public class Main {
         /* 
         -> Perfect for small text files
         try {
-            FileReader read_file = new FileReader("D:/Code/Per/Java/vimTest/vim/src/main/java/com/lennuh/assets/data.txt");
+            FileReader read_file = new FileReader();
             int d = 0;
             while (d != -1) {
                 d = read_file.read();
@@ -58,7 +58,7 @@ public class Main {
         */ 
         String file = "";
         try {
-            FileReader read_file = new FileReader("D:/Code/Per/Java/vimTest/vim/src/main/java/com/lennuh/assets/data3.txt");
+            FileReader read_file = new FileReader();
             BufferedReader buffered_file = new BufferedReader(read_file);
             String data = "";
             while (data != null) {
@@ -76,7 +76,7 @@ public class Main {
 
     static void writeTextFile(String text) {
         try {
-            FileWriter write_file = new FileWriter("D:/Code/Per/Java/vimTest/vim/src/main/java/com/lennuh/assets/data2.txt");
+            FileWriter write_file = new FileWriter();
             write_file.write(text);
             write_file.close();
         } catch (Exception e) {
@@ -86,7 +86,7 @@ public class Main {
 
     static void encodeFileBase64() {
         try {
-            FileInputStream read_file = new FileInputStream("D:/Code/Per/Java/vimTest/vim/src/main/java/com/lennuh/assets/MegaFrog.jpg");
+            FileInputStream read_file = new FileInputStream();
             byte[] data = read_file.readAllBytes();
             String encoder = Base64.getEncoder().encodeToString(data);
             System.out.println(encoder);
@@ -99,9 +99,9 @@ public class Main {
 
     static void decodeFileBase64() {
         try {
-            FileInputStream read_file = new FileInputStream("D:/Code/Per/Java/vimTest/vim/src/main/java/com/lennuh/assets/data2.txt");
+            FileInputStream read_file = new FileInputStream();
             byte[] data = Base64.getDecoder().decode(new String(read_file.readAllBytes()));
-            FileOutputStream write_file = new FileOutputStream("D:/Code/Per/Java/vimTest/vim/src/main/java/com/lennuh/assets/MegaFrog_Copy.jpg");
+            FileOutputStream write_file = new FileOutputStream();
             write_file.write(data);
             write_file.close();
             read_file.close();
